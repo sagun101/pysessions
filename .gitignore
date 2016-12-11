@@ -61,3 +61,10 @@ docs/_build/
 
 # PyBuilder
 target/
+<<<<<<< HEAD
+=======
+
+# datafiles
+*.sqlite3
+*.h5
+>>>>>>> data_science/master

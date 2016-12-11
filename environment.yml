@@ -1,11 +1,19 @@
+<<<<<<< HEAD
 name: pysession
+=======
+name: datascience
+>>>>>>> data_science/master
 dependencies:
   - python
   - jupyter
   - numpy
   - pandas
   - matplotlib
+<<<<<<< HEAD
   - bokeh
+=======
+  - requests
+>>>>>>> data_science/master
   - lxml
   - beautifulsoup4
   - xlrd
