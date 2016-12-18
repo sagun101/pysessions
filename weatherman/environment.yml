@@ -1,0 +1,5 @@
+name: weatherman
+dependencies:
+    -python
+    -flask
+    -pylink

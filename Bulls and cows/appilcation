@@ -1,0 +1,75 @@
+from flask import Flask
+
+
+app= Flask(__name__)
+
+@app.route("/")
+
+def randomizer():
+    import random
+    num_list = list("0123456789")
+    rnd=[]
+    for i in range(0,4):
+        c= random.choice(num_list)
+        rnd.append(c)
+        num_list.remove(c)
+    return rnd
+
+
+def check():
+    ok="False"
+    while ok =="False":
+        num=list(input("Wnter a 4 unique digit number"))
+        if len(num) !=4:
+            print("invalid number")
+            ok="False"
+        else:
+            for i in range(0,4):
+                for j in range(i+1,4):
+                    if num[i]==num[j]:
+                        ok="False"
+                        print("invalid")
+                        break
+                    else:
+                        ok="true"
+                        continue
+                if ok=="False":
+                    break
+                else:
+                    continue
+
+    return num
+
+
+if __name__ == '__main__':
+    
+    rnd=randomizer()
+    win="False"
+    tries=0
+    while win =="False":
+        cow,bull=0,0
+        num=check()
+        tries+=1
+        if num==rnd:
+            bull,cow=4,0
+            win="True"
+        else:
+            for i,j in enumerate(num):
+                for x,y in enumerate(num):
+                    if i==x and j==y:
+                        bull+=1
+                    elif i != x and j==y:
+                        cow+=1
+        print(num, "Bull= ", bull, "Cow= ",cow)
+
+print(rnd)
+Print(num,"Bull= ", bll, "Cow = ",cow)
+print ("You guessed correctly")
+Print("you took" , tries, "tries to guess correctly")
+
+
+
+
+
+
+                
