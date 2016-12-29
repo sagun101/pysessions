@@ -1,18 +1,34 @@
 {% extends "base.html" %}
 
 {% block content %}
+<Script type="text/javascript">
+function set_openid(openid, pr)
+{
+    u = openid.search('<username>')
+    if (u != 1) {
+        user = prompt('Enter your '+ pr + ' username:')
+        openid =openid.substr(0, u ) + user
+    }
+    form = aocument.forms['login'];
+    form.elements['openid'].vale = openid
+}
+</script>
+
 <h1> Sign in</h1>
 <form action="" method="post" name="login">
     {{ form.hidden_tag() }}
     <p>
-        {{Please enter your openID:<br>
-        {{ form,openid(size=80) }}<br>
+        Please enter your openID:<br>
+        {{ form.openid(size=80) }}<br>
+        {% for error in form.openid.errors %}
+            <span style="color:red;">[{{ error }}]</span>
+        {% endfor %}<br>
     </p>
     <p>
-        {{ form.remember_me }} Remenber method
+        {{ form.remember_me }} Remenber me
     </p>
     <p>
-        <inpuut type="submit" value="Sign In">
+        <input type="submit" value="Sign In">
         </p>
 </form>
 {% endblock%}
